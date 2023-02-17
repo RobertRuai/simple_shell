@@ -8,7 +8,8 @@
 #define MAX_COMMAND_LENGTH 1024
 
 int main() {
-    char command[MAX_COMMAND_LENGTH];
+    char *command = NULL;
+    size_t len = 0;
     char *args[2];
     int pid, status;
 
@@ -16,14 +17,17 @@ int main() {
         printf("#cisfun$ ");
         fflush(stdout);
 
-        if (fgets(command, MAX_COMMAND_LENGTH, stdin) == NULL) {
-            perror("fgets");
-            exit(1);
-        }
-
+        /*if (fgets(command, MAX_COMMAND_LENGTH, stdin) == NULL) {
+        *    perror("fgets");
+        *    exit(1);
+        }*/
+	getline(&command, &len, stdin);
         /* rm newline character from input */
-        command[strcspn(command, "\n")] = '\0';
+        /*command[strcspn(command, "\n")] = '\0'; */
 
+	printf("%s\n", command);
+
+	free(command);
         args[0] = command;
         args[1] = NULL;
 
