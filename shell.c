@@ -10,7 +10,7 @@
 /**
  * main - shell prompt \n
  *
- * Return: exit code 0 on success and non-zero status codes
+ * Return: exit code 0 on success, and non-zero status codes on fail
  */
 int main()
 {
