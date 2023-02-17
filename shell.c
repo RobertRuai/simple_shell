@@ -16,8 +16,8 @@ int main()
 {
 	char *command = NULL;
 	size_t command_size = 0;
-	char *args[2];
-	int pid, status;
+	int pid, status, i;
+	char *token;
 
 	while (1)
 	{
@@ -30,10 +30,24 @@ int main()
 			exit(1);
 		}
 
+		token = strtok(command, " \n");
+		char ** args = malloc(sizeof(char *) * command_size);
+		args[0] = token;
+
+		
+		if (strcmp(args[0], "exit") ==0)
+			exit(0);
+		
+		
+		for (i = 1; token != NULL; i++)
+		{
+			token = strtok(NULL, " \n");
+			args[i] = token;
+		}
 		/* rm newline character from input */
 		command[strcspn(command, "\n")] = '\0';
-		args[0] = command;
-		args[1] = NULL;
+		/*args[0] = command;*/
+		/*args[1] = NULL;*/
 
 		pid = fork();
 
