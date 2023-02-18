@@ -29,16 +29,12 @@ int main()
 			perror("getline");
 			exit(1);
 		}
-
 		token = strtok(command, " \n");
-		char ** args = malloc(sizeof(char *) * command_size);
-		args[0] = token;
+		char **args = malloc(sizeof(char *) * command_size);
 
-		
-		if (strcmp(args[0], "exit") ==0)
+		args[0] = token;
+		if (strcmp(args[0], "exit") == 0)
 			exit(0);
-		
-		
 		for (i = 1; token != NULL; i++)
 		{
 			token = strtok(NULL, " \n");
@@ -46,11 +42,7 @@ int main()
 		}
 		/* rm newline character from input */
 		command[strcspn(command, "\n")] = '\0';
-		/*args[0] = command;*/
-		/*args[1] = NULL;*/
-
 		pid = fork();
-
 		if (pid < 0)
 		{
 			perror("fork");
@@ -69,8 +61,6 @@ int main()
 			wait(&status);
 		}
 	}
-
 	free(command);
-
 	return (0);
 }
