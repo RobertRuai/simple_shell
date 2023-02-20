@@ -11,7 +11,6 @@
 
 /*prototypes*/
 void _execute(char *command, char **args);
-char *find_path(char *command); 
-
+char *find_path(char *command);
 
 #endif /* MAIN_H */
