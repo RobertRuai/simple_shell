@@ -13,7 +13,7 @@ int main(int ac, char **argv, char **env)
 {
 	char *command = NULL;
 	size_t command_size = 0;
-	int  i, j;
+	int i;
 	char *token;
 	(void) ac;
 
@@ -33,6 +33,15 @@ int main(int ac, char **argv, char **env)
 		argv[0] = token;
 		if (strcmp(argv[0], "exit") == 0)
 			exit(0);
+		/* environment variables */
+		if (strcmp(argv[0], "env") == 0)
+		{
+			while (*env)
+			{
+				printf("%s\n", *env++);
+			}
+			return (1);
+		}
 
 		for (i = 1; token != NULL; i++)
 		{
