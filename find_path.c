@@ -2,7 +2,6 @@
 /**
  * *find_path - Find the PATH
  * @command: command to find path.
- *
  * Return: string with path or NULL in failure.
  */
 
@@ -13,23 +12,19 @@ char *find_path(char *command)
 	struct stat buffer;
 
 	path = getenv("PATH");
-
 	if (path)
 	{
 		path_copy = strdup(path);
 		command_length = strlen(command);
 		path_token = strtok(path_copy, ":");
-
 		while (path_token != NULL)
 		{
 			directory_length = strlen(path_token);
 			file_path = malloc(command_length + directory_length + 2);
-
 			strcpy(file_path, path_token);
 			strcat(file_path, "/");
 			strcat(file_path, command);
 			strcat(file_path, "\0");
-
 			if (stat(file_path, &buffer) == 0)
 			{
 				free(path_copy);
@@ -42,7 +37,6 @@ char *find_path(char *command)
 			}
 		}
 		free(path_copy);
-		/* before exit, see if the command itself is a file_path that exists */
 		if (stat(command, &buffer) == 0)
 		{
 			return (command);
