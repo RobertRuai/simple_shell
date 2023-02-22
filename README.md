@@ -4,7 +4,7 @@
 
 This project is an implementation of the shell created as the final project for the C code sprint at ALX Africa.
 
-## `usage` 	
+## `usage`
 This shell program works like this in interactive mode:
 ```bash
 root@HP:/alx-SE/simple_shell# ls
