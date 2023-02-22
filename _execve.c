@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * execute_command - execute a command with arguments with fork & execve
+ * execute_command - execute a command with arguments using fork & execve
  * @args: the arguments to pass to the command
  *
  * Return: 1 for infinite shell iteration, 0 on_exit (success)
