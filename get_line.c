@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * read_line - read a characters(line) from stdin
+ * read_line - read a char (line) from stdin
  *
  * Return: commands from user's command line
  */
