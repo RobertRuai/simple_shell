@@ -2,7 +2,12 @@
 ---
 > Command line `interpreter`
 
-This project is an implementation of the shell created as the final project for the C code sprint at ALX Africa.
+This project is an implementation of the shell created as the final project for the C code sprint at ALX Africa. It covers select system calls - least privilege - for basic command line functionality. In the mix are a few `syscalls` and functions used here: `wait`, `fork`, `execve`, `exit`, `getline`, `strok`, etc. It partly emulates the shell `sh`.
+
+##Compilation:
+```bash
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o shell
+```
 
 ## `usage`
 This shell program works like this in interactive mode:
